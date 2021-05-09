@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        canvas {
+            position: absolute;
+            top: 0px;
+            bottom: 0px;
+            left: 0px;
+            right: 0px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- JS DO BOOTSTRAP -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+    
+
+    <!-- BARRA NAVEGACAO -->
+    <nav>
+        <ul>
+            <li>
+                <a href="inicio.html"> Início </a>
+            </li>
+            <li>
+                <a href="cadastro.html"> Novo Jogador </a>
+            </li>
+            <li>
+                <a href="index.html"> Login </a>
+            </li>
+        </ul>
+    </nav>
+    <header>
+        <h1>
+            Página Inicial do Site === TESTE
+        </h1>
+    </header>
+    
+    
+    <script>
+        let canvas, ctx, altura, largura, frames = 0;
+        
+        
+        
+        guardRailTop = {
+            y: 0,
+            alturaGR: 50,
+            cor: "#700",
+            
+            desenha: function() {
+                ctx.fillStyle = this.cor;
+                ctx.fillRect(0, this.y, largura, this.alturaGR);
+            }
+        }
+        
+        guardRailBot = {
+            y: 350,
+            alturaGR: 50,
+            cor: "#700",
+            
+            desenha: function() {
+                ctx.fillStyle = this.cor;
+                ctx.fillRect(0, this.y, largura, this.alturaGR);
+            }
+        }
+        
+        carro = {
+            x: 10,
+            y: 190,
+            compCarro: 40,
+            largCarro: 20,
+            cor: "#070",
+            velocidade: 0,
+            aceleracao: 1,
+            movimenta: 10,
+            
+            atualiza: function() {
+                //this.aceleracao += this.velocidade;
+                //this.x += this.aceleracao;
+            },
+            
+            moveCima: function() {
+            
+                this.y += -this.movimenta;
+            },
+            
+            moveBaixo: function() {
+            
+                this.y += this.movimenta;
+            },
+            
+            moveFrente: function() {
+            
+                this.x += this.movimenta;
+            },
+            
+            moveBack: function() {
+            
+                this.x += -this.movimenta;
+            },
+            
+            desenha: function() {
+                ctx.fillStyle = this.cor;
+                ctx.fillRect(this.x, this.y, this.compCarro, this.largCarro);
+            }
+        }
+        
+        
+        adversaios = {
+            _adv: [],
+            
+            insere: function() {
+            
+                this._adv.push({
+                    altura: carro.compCarro,
+                    lagura: carro.largCarro,
+                    cor: "#008"
+                });               
+            },
+            
+            desenha: function() {
+            
+                for(i = 0; i < this._adv.lengyh; i++) {
+                    ctx.fillStyle = adv.cor;
+                    ctx.fillRect(500, 50 +(Math.floor(300 * Math.random())), adv.altura, adv.largura) 
+                }
+                
+            //     _adv.forEach(atualizando);
+                
+            //    function atualizando(adv) {
+            //        ctx.fillStyle = adv.cor;
+            //        ctx.fillRect(500, 50 +(Math.floor(300 * Math.random())), adv.altura, adv.largura) 
+            //     }
+            },
+            
+            atualiza: function() {
+            
+
+            }
+        
+        };
+        
+        
+        function clica(event) {
+        
+            carro.moveCima();
+        
+        }
+        
+        function moveCarro(event) {
+        
+            console.info(event.keyCode);
+            if(event.keyCode == 38)
+                carro.moveCima();
+                
+            if(event.keyCode == 39)
+                carro.moveFrente();
+            
+            if(event.keyCode == 40)
+                carro.moveBaixo();
+                
+            if(event.keyCode == 37)
+                carro.moveBack();
+        }
+        
+        function main() {
+        
+            largura = window.innerWidth;
+            altura = window.innerHeight;
+            
+            if(largura >= 800) {
+                largura = 800;
+                altura = 400;
+            }
+            
+            canvas = document.createElement("canvas");
+            canvas.width = largura;
+            canvas.height = altura;
+            canvas.style.border = "2px solid #000";
+            
+            ctx = canvas.getContext("2d");
+            document.body.appendChild(canvas);
+                
+            document.addEventListener("mousedown", clica);
+            document.addEventListener("keydown", moveCarro);
+            document.onkeydown = moveCarro;
+            
+            roda()
+        }
+        
+        function roda() {
+        
+            atualiza();
+            desenha();
+            
+            window.requestAnimationFrame(roda);
+        }
+        
+        function atualiza() {
+            frames++;
+            carro.atualiza();
+        }
+        
+        function desenha() {
+            ctx.fillStyle = "#222";
+            ctx.fillRect(-1, -1, largura+1, altura-2);
+            
+            guardRailTop.desenha();
+            guardRailBot.desenha();
+            
+            adversaios.desenha();
+            carro.desenha();    
+        }
+        
+        main();
+    </script>
+</body>
+</html>

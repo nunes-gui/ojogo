@@ -1,0 +1,52 @@
+.navBar {
+
+    padding: 25px;
+    margin-left: 50px;
+}
+
+.navLink {
+
+    margin: 10px;
+    padding: 15px;
+
+    font-family: Impact, Haettenschweiler, sans-serif;
+    font-weight: bold;
+
+
+    color: honeydew;
+
+    border-width: 10px;
+    border-style: ridge;
+    border-color: rgb(170, 49, 49);
+
+    background-color: rgb(63, 63, 63);
+    
+}
+
+.imgIni {
+
+    /*padding: 25px;*/
+    margin: 25px;
+
+
+    border-width: 10px;
+    border-style: ridge;
+    border-color: rgb(170, 49, 49);
+
+    max-width: 550px;
+    width: auto;
+    height: auto;
+}
+
+body {
+    background-color: grey;
+}
+
+canvas {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+}
