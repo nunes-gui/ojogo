@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas width="800" height="800"></canvas>
+</body>
+</html>
+<script>
+
+    const canvas = document.querySelector("canvas");
+    const ctx = canvas.getContext("2d");
+    
+    //ctx.fillStyle = "red";
+    //ctx.fillStyle = "#00ff00";
+    ctx.fillStyle = "rgb(120, 10, 110)";
+    ctx.fillRect(10, 30, 250, 150);
+    
+    // rgba(vermelho, verde, azul, opacidade)
+    // opacidade: 0.0 (0%) a 1.0 (100%)
+    ctx.fillStyle = "rgba(0, 200, 0, 0.5)";
+    ctx.fillRect(120, 80, 250, 200);
+    
+    // Desenhar uma linha
+    // 1o. passo: iniciar um "caminho" 
+    ctx.beginPath()
+    // 2o. passo: definir o ponto inicial
+    ctx.moveTo(20, 480);
+    // 3o. passo: definir o ponto final
+    ctx.lineTo(480, 20);
+    // opcional: mudar a cor da linha
+    ctx.strokeStyle = "blue";
+    // opcional: mudar a espessura da linha
+    ctx.lineWidth = 15;
+    // opcional: mudar o formato da ponta da linha
+    ctx.lineCap = "round";
+    // Último passo: desenhar a linha
+    ctx.stroke();
+    
+    // Desenhar um círculo
+    ctx.beginPath();
+    /* Parâmetros do comando arc:
+    x: coordenada x do centro da circunferência
+    y: coordenada y do centro da circunferência
+    raio: raio da circunferência em pixels
+    angulo inicial: angulo inicio em radianos
+    angulo final: angulo final em radiano
+    antihorario: true ou false
+    */
+    ctx.arc(100, 400, 100, 0, 2 * Math.PI, false);
+    ctx.strokeStyle = "orange";
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    ctx.fillStyle = "rgba(125, 0, 0, 0.7)";
+    ctx.fill();
+    
+    // Desenhar um triangulo
+    ctx.beginPath();
+    ctx.moveTo(250, 450);
+    ctx.lineTo(450, 450);
+    ctx.lineTo(350, 250);
+    ctx.lineTo(250, 450);
+    ctx.stroke();
+    ctx.fillStyle = "rgba(125, 125, 70, 0.5)";
+    ctx.fill();
+
+</script>

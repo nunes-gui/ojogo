@@ -120,10 +120,11 @@
             _adv: [],
             
             insere: function() {
-            
+                
                 this._adv.push({
-                    altura: carro.compCarro,
-                    lagura: carro.largCarro,
+                    x: 500,
+                    advComp: 40,
+                    advLarg: 20,
                     cor: "#008"
                 });               
             },
@@ -131,8 +132,9 @@
             desenha: function() {
             
                 for(i = 0; i < this._adv.lengyh; i++) {
+                    let adv = this._adv[i];
                     ctx.fillStyle = adv.cor;
-                    ctx.fillRect(500, 50 +(Math.floor(300 * Math.random())), adv.altura, adv.largura) 
+                    ctx.fillRect(_adv.x, 50 +(Math.floor(300 * Math.random())), adv.advComp, adv.advLarg);
                 }
                 
             //     _adv.forEach(atualizando);
@@ -160,6 +162,7 @@
         function moveCarro(event) {
         
             console.info(event.keyCode);
+
             if(event.keyCode == 38)
                 carro.moveCima();
                 
@@ -209,7 +212,7 @@
         function atualiza() {
             frames++;
             carro.atualiza();
-        }
+        }   
         
         function desenha() {
             ctx.fillStyle = "#222";

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas width="800" height="550"></canvas>
+</body>
+</html>
+<script>
+
+    const canvas = document.querySelector("canvas");
+    const ctx = canvas.getContext("2d");
+    
+    //Tamanho e cor das bordas
+    ctx.lineWidth = 1.3;
+    ctx.strokeStyle = "blue";
+    
+    // Desenha o telhado
+    ctx.beginPath();
+    ctx.moveTo(150, 250);
+    ctx.lineTo(550, 250);
+    ctx.lineTo(350, 120);
+    ctx.lineTo(150, 250);
+    ctx.stroke();
+    ctx.fillStyle = "rgba(0, 0, 125, 0.8)";
+    ctx.fill();
+    
+    // Desenha a casa
+    ctx.beginPath();
+    ctx.moveTo(180, 250);
+    ctx.lineTo(520, 250);
+    ctx.lineTo(520, 500);
+    ctx.lineTo(180, 500);
+    ctx.lineTo(180, 250);
+    ctx.stroke();
+    ctx.fillStyle = "rgba(255, 0, 0, 0.9)";
+    ctx.fill();
+
+    // Desenha a porta
+    ctx.beginPath();
+    ctx.moveTo(400, 340);
+    ctx.lineTo(480, 340);
+    ctx.lineTo(480, 500);
+    ctx.lineTo(400, 500);
+    ctx.lineTo(400, 340);
+    ctx.stroke();
+    ctx.fillStyle = "rgba(75, 54, 33)";
+    ctx.fill();
+    
+    // Desenha a grama
+    ctx.beginPath();
+    ctx.moveTo(0, 500);
+    ctx.lineTo(799, 500);
+    ctx.lineTo(799, 549);
+    ctx.lineTo(1, 549);
+    ctx.lineTo(1, 500);
+    ctx.stroke();
+    ctx.fillStyle = "rgba(34, 139, 34)";
+    ctx.fill();
+    
+    // Desenhar o sol
+    ctx.beginPath();
+    ctx.arc(80, 100, 60, 0, 2 * Math.PI, false);
+    ctx.stroke();
+    ctx.fillStyle = "rgba(244, 158, 18, 0.9)";
+    ctx.fill();
+        
+    // Desenha a janela parte 1
+    ctx.beginPath();
+    ctx.moveTo(220, 350);
+    ctx.lineTo(260, 390);
+    ctx.lineTo(300, 350);
+    ctx.lineTo(260, 310);
+    ctx.lineTo(220, 350);
+    ctx.stroke();
+    ctx.fillStyle = "rgba(255, 255, 255)";
+    ctx.fill();
+    
+    ctx.lineWidth = 1.2;
+    // Desenha a janela parte 2
+    ctx.beginPath();
+    ctx.moveTo(220, 350);
+    ctx.lineTo(300, 350);
+    ctx.stroke();
+    ctx.fillStyle = "rgba(255, 255, 255)";
+    ctx.fill();
+    
+    // Desenha a janela parte 3
+    ctx.beginPath();
+    ctx.moveTo(260, 310);
+    ctx.lineTo(260, 390);
+    ctx.stroke();
+    ctx.fillStyle = "rgba(255, 255, 255)";
+    ctx.fill();
+    
+    // Desenha Tronco arvore
+    ctx.beginPath();
+    ctx.moveTo(680, 500);
+    ctx.lineTo(750, 500);
+    ctx.lineTo(730, 480);
+    ctx.lineTo(730, 380);
+    ctx.lineTo(780, 380);
+    ctx.lineTo(780, 370);
+    ctx.lineTo(780, 340);
+    ctx.lineTo(770, 340);
+    ctx.lineTo(770, 370);
+    ctx.lineTo(730, 370);
+    ctx.lineTo(730, 260);
+    ctx.lineTo(700, 260);
+    ctx.lineTo(700, 340);
+    ctx.lineTo(670, 340);
+    ctx.lineTo(670, 320);
+    ctx.lineTo(660, 320);
+    ctx.lineTo(660, 350);
+    ctx.lineTo(700, 350);
+    ctx.lineTo(700, 480);
+    ctx.lineTo(680, 500);
+    ctx.stroke();
+    ctx.fillStyle = "rgba(150, 75, 0)";
+    ctx.fill();
+    
+    // Desenhar folhas parte 1
+    ctx.beginPath();
+    ctx.arc(665, 300, 30, 0, 2 * Math.PI, false);
+    ctx.stroke();
+    ctx.fillStyle = "rgba(0, 244, 0, 0.9)";
+    ctx.fill();
+    
+    // Desenhar folhas parte 2
+    ctx.beginPath();
+    ctx.arc(710, 160, 120, 0, 2 * Math.PI, false);
+    ctx.stroke();
+    ctx.fillStyle = "rgba(0, 244, 0, 0.9)";
+    ctx.fill();
+    
+    // Desenhar folhas parte 3
+    ctx.beginPath();
+    ctx.arc(775, 320, 40, 0, 2 * Math.PI, false);
+    ctx.stroke();
+    ctx.fillStyle = "rgba(0, 244, 0, 0.9)";
+    ctx.fill();
+
+
+    
+    
+
+
+</script>

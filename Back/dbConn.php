@@ -22,5 +22,4 @@ public static $campoLogin = "LOGIN";
 
 }
 
-
 ?>

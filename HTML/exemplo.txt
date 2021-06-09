@@ -1,0 +1,55 @@
+Virtual Hosts no Apache
+
+Os comandos que devem ser digitados estão na frente do símbolo $
+Os comentários/explicações estão na frente dos símbolos --
+
+-----------------------------------
+-- Criando o diretório com o nome do domínio:
+$ sudo cd /var/www/html
+$ sudo mkdir -p seunome.com/public_html
+
+--Mudando as permissões:
+$ sudo chown -R $USER:$USER /var/www/html/seunome.com/public_html/
+$ sudo chmod -R 755 /var/www/html
+
+--Fazendo uma cópia do arquivo de configuração do domínio no Apache:
+$ sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/seunome.com.conf
+
+--Editando o arquivo de configuração do domínio no Apache:
+$ sudo vi /etc/apache2/sites-available/seunome.com.conf
+
+<VirtualHost *:80>
+  
+        ServerAdmin webmaster@localhost
+        DocumentRoot /var/www/html/seunome.com/public_html
+        ServerName seunome.com
+        ServerAlias www.seunome.com
+
+</VirtualHost>
+
+--Habilitando o arquivo de configuração do domínio no Apache:
+$ sudo a2ensite seunome.com.conf
+Enabling site seunome.com.
+To activate the new configuration, you need to run:
+  service apache2 reload
+
+--Reestartando o Apache:
+$ sudo service apache2 restart
+
+--Criando um arquivo index.html:
+-Criar um arquivo index.html no diretório /var/www/html/seunome.com/public_html
+OU
+-Copiar o arquivo index.html que está no /var/www/html/ para o diretório /var/www/html/seunome.com/public_html
+
+-----------------------------------
+Alterar o hosts
+
+No Windows, abrir como administrador o arquivo hosts, que está no endereço abaixo:
+C:\Windows\System32\drivers\etc\
+
+Inserir a linha:
+IP do servidor seunome.com
+
+-----------------------------------
+Testar no navegador do Windows acessando o endereço seunome.com
+
